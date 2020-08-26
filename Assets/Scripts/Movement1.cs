@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement1 : MonoBehaviour
 {
 
     private Rigidbody rb;
     private float playerInput;
-    [SerializeField] private float movementSpeed = 10.0f;
+    [SerializeField] private float movementSpeed = 20.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move(new Vector3(playerInput, 0, 0));
+        Move(new Vector3(0, 0, playerInput*-1));
     }
 
     private void Move(Vector3 direction)
@@ -35,6 +35,6 @@ public class Movement : MonoBehaviour
 
     private void PlayerInput()
     {
-        playerInput = Input.GetAxis("Vertical");
+        playerInput = Input.GetAxis("Horizontal");
     }
 }
